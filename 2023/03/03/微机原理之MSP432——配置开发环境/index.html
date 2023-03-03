@@ -1,0 +1,245 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>微机原理之MSP432——配置开发环境？ | Flose's Blog</title><meta name="author" content="Flose"><meta name="copyright" content="Flose"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="微机原理之MSP432——配置开发环境开发环境介绍工欲善其事必先利其器，有许多ide可以用于开发msp432接下来展开介绍一下, 大家可以选择自己喜欢的IDE，本文章主要讲解ccs环境配置   CCS 介绍  Code Composer Studio 是一个基于eclipse开发的集成开发环境 (IDE)，简称CCS软件。支持 TI 的微控制器和嵌入式处理器产品的开发。Code Composer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微机原理之MSP432——配置开发环境？">
+<meta property="og:url" content="https://flose.cn/2023/03/03/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B9%8BMSP432%E2%80%94%E2%80%94%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/index.html">
+<meta property="og:site_name" content="Flose&#39;s Blog">
+<meta property="og:description" content="微机原理之MSP432——配置开发环境开发环境介绍工欲善其事必先利其器，有许多ide可以用于开发msp432接下来展开介绍一下, 大家可以选择自己喜欢的IDE，本文章主要讲解ccs环境配置   CCS 介绍  Code Composer Studio 是一个基于eclipse开发的集成开发环境 (IDE)，简称CCS软件。支持 TI 的微控制器和嵌入式处理器产品的开发。Code Composer">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.328888.xyz/2023/02/27/e3PIz.png">
+<meta property="article:published_time" content="2023-03-03T10:14:01.000Z">
+<meta property="article:modified_time" content="2023-03-03T08:48:51.366Z">
+<meta property="article:author" content="Flose">
+<meta property="article:tag" content="公司介绍">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.328888.xyz/2023/02/27/e3PIz.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://flose.cn/2023/03/03/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B9%8BMSP432%E2%80%94%E2%80%94%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '微机原理之MSP432——配置开发环境？',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-03 16:48:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/css/myStyle.css"><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.328888.xyz/2023/02/26/ESj8a.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.328888.xyz/2023/02/27/e3PIz.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Flose's Blog"><span class="site-name">Flose's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">微机原理之MSP432——配置开发环境？</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-03T10:14:01.000Z" title="发表于 2023-03-03 18:14:01">2023-03-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-03T08:48:51.366Z" title="更新于 2023-03-03 16:48:51">2023-03-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%B5%E8%B7%AF/">电路</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%B5%E8%B7%AF/%E5%85%AC%E5%8F%B8%E4%BB%8B%E7%BB%8D/">公司介绍</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="微机原理之MSP432——配置开发环境？"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="微机原理之MSP432——配置开发环境"><a href="#微机原理之MSP432——配置开发环境" class="headerlink" title="微机原理之MSP432——配置开发环境"></a>微机原理之MSP432——配置开发环境</h1><h1 id="开发环境介绍"><a href="#开发环境介绍" class="headerlink" title="开发环境介绍"></a>开发环境介绍</h1><p>工欲善其事必先利其器，有许多ide可以用于开发msp432接下来展开介绍一下, 大家可以选择自己喜欢的IDE，本文章主要讲解ccs环境配置</p>
+<p><img src="https://i.328888.xyz/2023/02/28/zm7KH.png"></p>
+<ul>
+<li><p>CCS 介绍<br><img src="https://i.328888.xyz/2023/02/28/zm6SC.jpeg"></p>
+<blockquote>
+<p>Code Composer Studio 是一个基于eclipse开发的集成开发环境 (IDE)，简称CCS软件。支持 TI 的微控制器和嵌入式处理器产品的开发。Code Composer Studio 包含一整套用于开发和调试嵌入式应用程序的工具。它包括一个优化的C/C++编译器、源代码编辑器、项目构建环境、调试器、分析器和许多其他功能。直观的IDE提供了单个用户界面，可引导您完成应用程序开发流程的每个步骤。熟悉的工具和界面使用户可以比以往更快地上手。Code Composer Studio将Eclipse软件框架的优势与TI的高级嵌入式调试功能相结合，从而为嵌入式开发人员提供了引人注目的功能丰富的开发环境</p>
+</blockquote>
+</li>
+<li><p>MDK-ARM(KEIL)介绍<br><img src="https://i.328888.xyz/2023/02/28/zmLSd.jpeg"></p>
+<blockquote>
+<p>MDK-ARM软件为基于Cortex-M、Cortex-R4、ARM7、ARM9处理器设备提供了一个完整的开发环境。 MDK-ARM专为微控制器应用而设计，而且功能强大，能够满足大多数苛刻的嵌入式应用。与Keil MDK4及之前版本不同，Keil MDK5分成MDK Core和Software Packs两部分。MDK Core主要包含uVision5 IDE集成开发环境和ARM Compiler5。Software Packs则可以在不更换MDK Core的情况下，单独管理（下载、更新、移除）设备支持包和中间件更新包。MDK-ARM有四个可用版本，分别是MDK-Lite（免费评估版）、MDK-Essential（基础版）、MDK-Plus（标准版）、MDK-Professional（专业版）。所有版本均提供一个完善的C / C++开发环境，其中MDK-Professional还包含大量的中间库。</p>
+</blockquote>
+</li>
+<li><p>IAR EWARM介绍<br><img src="https://i.328888.xyz/2023/02/28/zma6z.png"></p>
+<blockquote>
+<p>Embedded Workbench for ARM 是IARSystems 公司为ARM 微处理器开发的一个集成开发环境(下面简称IAR EWARM)。比较其他的ARM 开发环境，IAR EWARM 具有入门容易、使用方便和代码紧凑等特点 [1]  。<br>IAR Systems 公司目前推出的最新版本是IAR Embedded Workbenchfor ARM version 4.30。这里提供的是32k 代码限制、但没有时间限制的Kickstart版。<br>EWARM 中包含一个全软件的模拟程序(simulator)。用户不需要任何硬件支持就可以模拟各种ARM 内核、外部设备甚至中断的软件运行环境。从中可以了解和评估IAR EWARM 的功能和使用方法。</p>
+</blockquote>
+</li>
+<li><p>CMAKE<br><img src="https://i.328888.xyz/2023/02/28/zmuLk.png"></p>
+<blockquote>
+<p>平时使用clion的同学可能对cmake非常熟悉<br>CMake是一个跨平台的构建系统，它不构建软件，而是为其他构建系统生成输入文件。 CMake能够在不同平台（ Linux 、 Windows 、 Mac OS ）和不同的构建系统（ Makefiles 、 NMake 、 Visual Studio 、 XCode等）上生成构建文件。 因此，如果您想从命令行构建项目或使用CCS以外的 IDE， MSP CMake可以提供帮助。</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="CCS环境配置之windows环境"><a href="#CCS环境配置之windows环境" class="headerlink" title="CCS环境配置之windows环境"></a>CCS环境配置之windows环境</h1><h2 id="1-访问TI官网下载ccs安装包"><a href="#1-访问TI官网下载ccs安装包" class="headerlink" title="1.访问TI官网下载ccs安装包"></a>1.访问TI官网下载ccs安装包</h2><p><a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/CCSTUDIO?keyMatch=CCS">https://www.ti.com.cn/tool/cn/CCSTUDIO?keyMatch=CCS</a></p>
+<p><img src="https://i.328888.xyz/2023/02/28/zpDFy.png"></p>
+<p><img src="https://i.328888.xyz/2023/03/03/FcorV.png"></p>
+<h2 id="2-访问TI官网下载ccs安装包"><a href="#2-访问TI官网下载ccs安装包" class="headerlink" title="2.访问TI官网下载ccs安装包"></a>2.访问TI官网下载ccs安装包</h2><p>一路下一步，勾选MSP432组件</p>
+<p><img src="https://i.328888.xyz/2023/03/03/FmAXZ.png"></p>
+<p>安装完成。</p>
+<h2 id="3-打开CCS，输入workspace路径"><a href="#3-打开CCS，输入workspace路径" class="headerlink" title="3.打开CCS，输入workspace路径"></a>3.打开CCS，输入workspace路径</h2><p><img src="https://i.328888.xyz/2023/03/03/Fpnxw.png"></p>
+<h2 id="4-中英文切换"><a href="#4-中英文切换" class="headerlink" title="4.中英文切换"></a>4.中英文切换</h2><p>CCS在下载默认为英文环境，所以需要下载中文的语言包。</p>
+<hr>
+<p>访问<a target="_blank" rel="noopener" href="https://eclipse.dev//babel/downloads.php%E5%A4%8D%E5%88%B6%E8%AF%AD%E8%A8%80%E5%8C%85%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80">https://eclipse.dev//babel/downloads.php复制语言包仓库地址</a></p>
+<p><a target="_blank" rel="noopener" href="https://imgloc.com/i/FpIM8"><img src="https://i.328888.xyz/2023/03/03/FpIM8.md.png" alt="FpIM8.md.png"></a></p>
+<p>将复制的地址粘贴到ccs中</p>
+<p><img src="https://i.328888.xyz/2023/03/03/FpFso.png"></p>
+<p><img src="https://i.328888.xyz/2023/03/03/FBZP5.png"></p>
+<p>找到中文语言包勾选下载即可</p>
+<p><img src="https://i.328888.xyz/2023/03/03/Fp9Pw.png"></p>
+<p>至此，安装结束！</p>
+<h1 id="新建CCS工程项目"><a href="#新建CCS工程项目" class="headerlink" title="新建CCS工程项目"></a>新建CCS工程项目</h1><p>找到菜单栏下的 项目&gt;New CCS Project</p>
+<p>如图</p>
+<p><img src="https://i.328888.xyz/2023/03/03/FgHGV.png"></p>
+<h2 id="1-下载安装MSP432-SDK-simplelink"><a href="#1-下载安装MSP432-SDK-simplelink" class="headerlink" title="1.下载安装MSP432 SDK(simplelink)"></a>1.下载安装MSP432 SDK(<strong>simplelink</strong>)</h2><p><img src="https://i.328888.xyz/2023/03/03/FERsJ.png"></p>
+<h2 id="2-添加头文件搜索路径"><a href="#2-添加头文件搜索路径" class="headerlink" title="2.添加头文件搜索路径"></a>2.添加头文件搜索路径</h2><p>项目&gt;属性&gt;include options</p>
+<p>在里面添加添加：simplelink_msp432p4_sdk下的source目录和simplelink_msp432p4_sdk\source\third_party\CMSIS\Include两个文件夹目录</p>
+<h2 id="3-编写点灯程序"><a href="#3-编写点灯程序" class="headerlink" title="3.编写点灯程序"></a>3.编写点灯程序</h2><p><a target="_blank" rel="noopener" href="https://imgloc.com/i/FFWHF"><img src="https://i.328888.xyz/2023/03/03/FFWHF.md.png" alt="FFWHF.md.png"></a></p>
+<h2 id="4-烧录"><a href="#4-烧录" class="headerlink" title="4.烧录"></a>4.烧录</h2><p>连接msp432至电脑，打开电脑的设备管理器看看是否识别成功</p>
+<p><img src="https://i.328888.xyz/2023/03/03/FFEZa.png"></p>
+<p>ccs点击构建和flash即可把程序烧录至单片机</p>
+<p><img src="https://i.328888.xyz/2023/03/03/FFeOx.png"></p>
+<h2 id="5-点灯效果演示"><a href="#5-点灯效果演示" class="headerlink" title="5.点灯效果演示"></a>5.点灯效果演示</h2><p><img src="https://i.328888.xyz/2023/03/03/FGWSz.gif"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://flose.cn">Flose</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://flose.cn/2023/03/03/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B9%8BMSP432%E2%80%94%E2%80%94%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">https://flose.cn/2023/03/03/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B9%8BMSP432%E2%80%94%E2%80%94%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://flose.cn" target="_blank">Flose's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%85%AC%E5%8F%B8%E4%BB%8B%E7%BB%8D/">公司介绍</a></div><div class="post_share"><div class="social-share" data-image="https://i.328888.xyz/2023/02/27/e3PIz.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/02/28/msp432guider/" title="微机原理之MSP432不完全开发指南——导航"><img class="cover" src="https://i.328888.xyz/2023/02/28/zRD6J.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">微机原理之MSP432不完全开发指南——导航</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/02/27/%E5%85%AC%E5%8F%B8%E4%BB%8B%E7%BB%8D_TI/" title="宇宙第一模拟半导体元件的制造商TI？"><img class="cover" src="https://i.328888.xyz/2023/02/27/e3PIz.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-27</div><div class="title">宇宙第一模拟半导体元件的制造商TI？</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.328888.xyz/2023/02/26/ESj8a.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Flose</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/2413201"><i class="fa fa-address-card"></i><span>My Aistudio</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/coinlockerbaby" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:seeyounextsun@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://jq.qq.com/?_wv=1027&amp;k=f0XSK9yv" target="_blank" title="QQ交流群"><i class="fa fa-commenting"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B9%8BMSP432%E2%80%94%E2%80%94%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">微机原理之MSP432——配置开发环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">开发环境介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CCS%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B9%8Bwindows%E7%8E%AF%E5%A2%83"><span class="toc-number">3.</span> <span class="toc-text">CCS环境配置之windows环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AE%BF%E9%97%AETI%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BDccs%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-number">3.1.</span> <span class="toc-text">1.访问TI官网下载ccs安装包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%AE%BF%E9%97%AETI%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BDccs%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-number">3.2.</span> <span class="toc-text">2.访问TI官网下载ccs安装包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%89%93%E5%BC%80CCS%EF%BC%8C%E8%BE%93%E5%85%A5workspace%E8%B7%AF%E5%BE%84"><span class="toc-number">3.3.</span> <span class="toc-text">3.打开CCS，输入workspace路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%AD%E8%8B%B1%E6%96%87%E5%88%87%E6%8D%A2"><span class="toc-number">3.4.</span> <span class="toc-text">4.中英文切换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B0%E5%BB%BACCS%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE"><span class="toc-number">4.</span> <span class="toc-text">新建CCS工程项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85MSP432-SDK-simplelink"><span class="toc-number">4.1.</span> <span class="toc-text">1.下载安装MSP432 SDK(simplelink)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%B7%BB%E5%8A%A0%E5%A4%B4%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84"><span class="toc-number">4.2.</span> <span class="toc-text">2.添加头文件搜索路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BC%96%E5%86%99%E7%82%B9%E7%81%AF%E7%A8%8B%E5%BA%8F"><span class="toc-number">4.3.</span> <span class="toc-text">3.编写点灯程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%83%A7%E5%BD%95"><span class="toc-number">4.4.</span> <span class="toc-text">4.烧录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%82%B9%E7%81%AF%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA"><span class="toc-number">4.5.</span> <span class="toc-text">5.点灯效果演示</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/03/03/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B9%8BMSP432%E2%80%94%E2%80%94%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" title="微机原理之MSP432——配置开发环境？"><img src="https://i.328888.xyz/2023/02/27/e3PIz.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微机原理之MSP432——配置开发环境？"/></a><div class="content"><a class="title" href="/2023/03/03/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B9%8BMSP432%E2%80%94%E2%80%94%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" title="微机原理之MSP432——配置开发环境？">微机原理之MSP432——配置开发环境？</a><time datetime="2023-03-03T10:14:01.000Z" title="发表于 2023-03-03 18:14:01">2023-03-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/28/msp432guider/" title="微机原理之MSP432不完全开发指南——导航"><img src="https://i.328888.xyz/2023/02/28/zRD6J.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微机原理之MSP432不完全开发指南——导航"/></a><div class="content"><a class="title" href="/2023/02/28/msp432guider/" title="微机原理之MSP432不完全开发指南——导航">微机原理之MSP432不完全开发指南——导航</a><time datetime="2023-02-28T09:56:50.000Z" title="发表于 2023-02-28 17:56:50">2023-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/27/%E5%85%AC%E5%8F%B8%E4%BB%8B%E7%BB%8D_TI/" title="宇宙第一模拟半导体元件的制造商TI？"><img src="https://i.328888.xyz/2023/02/27/e3PIz.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="宇宙第一模拟半导体元件的制造商TI？"/></a><div class="content"><a class="title" href="/2023/02/27/%E5%85%AC%E5%8F%B8%E4%BB%8B%E7%BB%8D_TI/" title="宇宙第一模拟半导体元件的制造商TI？">宇宙第一模拟半导体元件的制造商TI？</a><time datetime="2023-02-27T10:14:01.000Z" title="发表于 2023-02-27 18:14:01">2023-02-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/26/%E8%B7%9F%E7%8E%8B%E5%B0%8F%E7%BE%8E%E4%B8%8E%E4%B8%89%E5%B2%81%E4%B8%80%E8%B5%B7%E5%AD%A6paddle%20%E2%80%94%20%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="跟着王小美和三岁一起学paddle(4)--卷积神经网络"><img src="https://ai-studio-static-online.cdn.bcebos.com/c40042ec75d5412da45370abe110559a5fc38c887cb24b2f9010409f4523d918" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="跟着王小美和三岁一起学paddle(4)--卷积神经网络"/></a><div class="content"><a class="title" href="/2023/02/26/%E8%B7%9F%E7%8E%8B%E5%B0%8F%E7%BE%8E%E4%B8%8E%E4%B8%89%E5%B2%81%E4%B8%80%E8%B5%B7%E5%AD%A6paddle%20%E2%80%94%20%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="跟着王小美和三岁一起学paddle(4)--卷积神经网络">跟着王小美和三岁一起学paddle(4)--卷积神经网络</a><time datetime="2023-02-26T12:54:01.000Z" title="发表于 2023-02-26 20:54:01">2023-02-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/26/%E8%B7%9F%E7%8E%8B%E5%B0%8F%E7%BE%8E%E4%B8%8E%E4%B8%89%E5%B2%81%E4%B8%80%E8%B5%B7%E5%AD%A6paddle%20%E2%80%94%20%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB/" title="跟着王小美和三岁一起学paddle(3)--图像分类"><img src="https://ai-studio-static-online.cdn.bcebos.com/46ed8e93aeca4a059ed14cd72090cf4711f398e634c0400c8a14fef8f42967cd" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="跟着王小美和三岁一起学paddle(3)--图像分类"/></a><div class="content"><a class="title" href="/2023/02/26/%E8%B7%9F%E7%8E%8B%E5%B0%8F%E7%BE%8E%E4%B8%8E%E4%B8%89%E5%B2%81%E4%B8%80%E8%B5%B7%E5%AD%A6paddle%20%E2%80%94%20%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB/" title="跟着王小美和三岁一起学paddle(3)--图像分类">跟着王小美和三岁一起学paddle(3)--图像分类</a><time datetime="2023-02-26T12:54:01.000Z" title="发表于 2023-02-26 20:54:01">2023-02-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Flose</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'CBh3CVLEPggVfEKai0Vsb3wj-9Nh9j0Va',
+      appKey: '7IbFlM3DJ0Cc1ICEjG3wkxAk',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      master: '6a5cf78d405eeadc3b6d9bb6d1136d89',   //博主邮箱md5加密32位小写
+      tagMeta: ["博主","小伙伴","访客"],     //标识字段名
+      friends:  [],  //小伙伴邮箱Md5
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('/js/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script src="/js/font.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></body></html>
