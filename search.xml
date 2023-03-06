@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>微机原理之MSP432——基础知识(建设中)</title>
+      <link href="/2023/03/06/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+      <url>/2023/03/06/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-位运算"><a href="#1-位运算" class="headerlink" title="1.位运算"></a>1.位运算</h1><table><thead><tr><th align="left">符号</th><th align="left">描述</th><th align="left">运算规则</th></tr></thead><tbody><tr><td align="left">&amp;</td><td align="left">与</td><td align="left">两个位都为1时，结果才为1</td></tr><tr><td align="left">|</td><td align="left">或</td><td align="left">两个位都为0时，结果才为0</td></tr><tr><td align="left">^</td><td align="left">异或</td><td align="left">两个位相同为0，相异为1</td></tr><tr><td align="left">~</td><td align="left">取反</td><td align="left">0变1，1变0</td></tr><tr><td align="left">&lt;&lt;</td><td align="left">左移</td><td align="left">各二进位全部左移若干位，高位丢弃，低位补0</td></tr><tr><td align="left">&gt;&gt;</td><td align="left">右移</td><td align="left">各二进位全部右移若干位，对无符号数，高位补0，有符号数，各编译器处理方法不一样，有的补符号位（算术右移），有的补0（逻辑右移）</td></tr></tbody></table><h1 id="2-RS232、TTL关系"><a href="#2-RS232、TTL关系" class="headerlink" title="2.RS232、TTL关系"></a>2.RS232、TTL关系</h1><p>内容来源于<a href="https://zhuanlan.zhihu.com/p/25893717">https://zhuanlan.zhihu.com/p/25893717</a></p><p>RS232通常出现在传统的PC和服务器领域，TTL通常用于嵌入式设备。</p><p>TTL全名是晶体管-晶体管逻辑集成电路(Transistor-Transistor Logic)，这种串行通信，对应的物理电平，始终是<strong>在0V和Vcc之间</strong>，其中常见的<strong>Vcc是5V或3.3V</strong>。TTL <strong>高电平1是&gt;=2.4V</strong>，<strong>低电平0是&lt;=0.5V</strong>（对于5V或3.3V电源电压），这里是<strong>正逻辑</strong>。</p><p>RS232接口的电平范围是**-15V到+15V<strong>。 在 单片机范围内,RS232由于没有负电源,所以使用非常规的</strong>接口电平0-5V**.如果需要和PC连接,需要进行电平<strong>转换成-15+15V</strong>才能被PC识别，<strong>逻辑1的电平为-3～-15V，逻辑0的电平为+3～+15V</strong>，注意电平的定义<strong>反相</strong>了一次。</p><p>RS232和TTL的时序对比：</p><p><img src="https://pic1.zhimg.com/80/v2-52799e6a9afe9aca158fc680cdebab40_720w.webp"></p><p>RS232和TTL之间的转换，不仅仅是简单的电平转换，还要考虑到其他一些因素，比如调节和矫正一些电平（提高或降低对应的电平），确保可能的有害的RS232电压不会破坏微控制器的串口针脚。这里有很成熟的方案，我们可以通过MAX3232之类的芯片，把TTL电平转为RS232电平，或者简单的在淘宝购买TTL转RS232电缆即可。</p><p><img src="https://pic3.zhimg.com/80/v2-193f9443ca3de1b799268a3b5b1bb1f6_720w.webp"></p><p>MAX3232一端与单片机的引脚相连，另一端与RS232的串口相连，完成了TTL电平到RS232电平的转换。其原理图如下：</p><p><img src="https://pic4.zhimg.com/80/v2-97a8ad18b21aac40a8f24bc756a91013_720w.webp"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 电路 </category>
+          
+          <category> 单片机 </category>
+          
+          <category> msp432 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 电路 </tag>
+            
+            <tag> 单片机mcu,msp432 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微机原理之MSP432——配置开发环境keil篇</title>
       <link href="/2023/03/05/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B9%8BMSP432_%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83KEIL%E7%AF%87/"/>
       <url>/2023/03/05/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B9%8BMSP432_%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83KEIL%E7%AF%87/</url>
